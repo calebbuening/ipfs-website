@@ -13,7 +13,7 @@ jobs:
 
       - name: Upload to IPFS via nft.storage
         run: |
-          tar -czf site.tar.gz /
+          tar -czf site.tar.gz . --exclude='.git*' --exclude='*.tar.gz' --exclude='*.yml' --exclude='README.md'
           curl -X POST https://api.nft.storage/upload \
             -H "Authorization: Bearer ${{ secrets.NFT_STORAGE_TOKEN }}" \
             -H "Content-Type: application/gzip" \
