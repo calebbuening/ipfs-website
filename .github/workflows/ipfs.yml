@@ -11,10 +11,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Upload to IPFS via nft.storage
+      - name: Upload directory to IPFS via nft.storage
         run: |
-          tar --exclude='.git*' --exclude='*.tar.gz' --exclude='*.yml' --exclude='README.md' -czf site.tar.gz .
-          curl -X POST https://api.nft.storage/upload \
-            -H "Authorization: Bearer ${{ secrets.NFT_STORAGE_TOKEN }}" \
-            -H "Content-Type: application/gzip" \
-            --data-binary @site.tar.gz
+          npm install -g nft.storage-cli
+          nftstorage store --token=${{ secrets.NFT_STORAGE_TOKEN }} --directory . --no-wrap
