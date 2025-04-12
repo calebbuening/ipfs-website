@@ -12,6 +12,21 @@ body {
     background-color: #f8f9fa;
 }
 
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #2980b9;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -35,6 +50,46 @@ header h1 {
 header .tagline {
     font-size: 1.2rem;
     opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-top: 1rem;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav ul li a:hover {
+    color: #3498db;
+}
+
+nav ul li a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3498db;
+    transition: width 0.3s;
+}
+
+nav ul li a:hover:after {
+    width: 100%;
 }
 
 /* Hero Section */
@@ -58,6 +113,13 @@ header .tagline {
     margin-right: auto;
 }
 
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
 .btn {
     display: inline-block;
     background-color: white;
@@ -75,6 +137,17 @@ header .tagline {
     color: white;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: #3498db;
 }
 
 /* Section Styles */
@@ -100,8 +173,132 @@ section h2:after {
     background-color: #3498db;
 }
 
-/* About Section */
-.about {
+/* Featured Posts Section */
+.featured-posts {
+    background-color: white;
+}
+
+.post-grid, .blog-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.post-card, .blog-item {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.post-card:hover, .blog-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.post-card h3, .blog-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+.post-date {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.post-excerpt {
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    display: inline-block;
+    font-weight: 500;
+}
+
+.view-all {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Blog Post */
+.blog-post {
+    padding: 5rem 0;
+}
+
+.post-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.post-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.post-content h2 {
+    margin: 2rem 0 1rem;
+    text-align: left;
+}
+
+.post-content h2:after {
+    display: none;
+}
+
+.post-content h3 {
+    margin: 1.5rem 0 1rem;
+}
+
+.post-content p, .post-content ul, .post-content ol {
+    margin-bottom: 1.5rem;
+}
+
+.post-content ul, .post-content ol {
+    padding-left: 2rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+
+.post-content pre {
+    background-color: #f1f1f1;
+    padding: 1.5rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+.post-content code {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Post Navigation */
+.post-navigation {
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* About Page */
+.page-content {
+    padding: 5rem 0;
     background-color: white;
 }
 
@@ -122,52 +319,21 @@ section h2:after {
     font-size: 1.1rem;
 }
 
-/* Projects Section */
-.projects {
-    background-color: #f8f9fa;
-}
-
-.project-grid {
+.skills-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.project-card h3 {
-    color: #3498db;
-    margin-bottom: 1rem;
-}
-
-/* Contact Section */
-.contact {
-    background-color: white;
-    text-align: center;
-}
-
-.contact p {
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    font-size: 1.1rem;
-}
-
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 2rem;
+}
+
+.skills-list li {
+    background-color: #f1f1f1;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: 500;
 }
 
 /* Footer */
@@ -178,10 +344,29 @@ footer {
     text-align: center;
 }
 
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 0.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #3498db;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     header h1 {
         font-size: 2rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
     }
     
     .hero h2 {
@@ -192,7 +377,16 @@ footer {
         font-size: 1.8rem;
     }
     
-    .project-grid {
+    .post-grid, .blog-list {
         grid-template-columns: 1fr;
+    }
+    
+    .post-header h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
     }
 }
