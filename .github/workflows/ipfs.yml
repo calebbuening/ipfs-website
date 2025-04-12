@@ -1,0 +1,20 @@
+name: Upload to IPFS with nft.storage
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Upload to IPFS via nft.storage
+        run: |
+          tar -czf site.tar.gz /
+          curl -X POST https://api.nft.storage/upload \
+            -H "Authorization: Bearer ${{ secrets.NFT_STORAGE_TOKEN }}" \
+            -H "Content-Type: application/gzip" \
+            --data-binary @site.tar.gz
